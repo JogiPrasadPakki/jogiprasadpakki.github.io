@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Developed by Jogi Prasad Pakki on 26/Octobor/2018 -->
+    <meta charset="utf-8">
+    <title>Unity Android Network Manger | Android Native Core</title>
+    <meta name="viewport" content=" width = device-width, initial-scale = 1.0">
+    <meta name="keywords" content="android toast,unity android toast,unity android toast tutorial,android native core toast,anc toast, unity android toast c#">
+    <meta name="description" content="Use Android toast message in unity android game ">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@getbootstrap">
+    <meta name="twitter:creator" content="@getbootstrap">
+    <meta name="twitter:title" content="Android Native Core">
+    <meta name="twitter:description" content="Documentation and examples for displaying inline and multiline blocks of code with Bootstrap.">
+    <meta name="twitter:image" content="http://jogiprasadpakki.github.io/images/anc-banner.png">
+
+    <meta property="og:url" content="https://getbootstrap.com/docs/4.0/content/code/">
+    <meta property="og:title" content="AndroidNativeCore">
+    <meta property="og:description" content="Documentation and examples for displaying inline and multiline blocks of code with Bootstrap.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="http://jogiprasadpakki.github.io/images/anc-banner.png">
+    <meta property="og:image:secure_url" content="http://jogiprasadpakki.github.io/projects/AndroidNativeCore.html">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+   
+    <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../images/favicon.ico" type="image/x-icon">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../lib/PrismCsharp/prism.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link href="css/docstyle.css" rel="stylesheet">
+</head>
+<body>
+    <div class="brand">
+        <h3><a href="https://jogiprasadpakki.github.io">Jogi Prasad Pakki</a></h3>
+    </div>      
+    <nav id="top-nav" class="navbar navbar-expand-lg navbar-dark bg-light navbar-toggleable-md  sticky-top" role="navigation" >
+        <noscript>
+            <p>Plese enable javaScript to best view</p>
+        </noscript>
+    </nav>
+    <div class="container-fluid">
+        <div class="row flex-xl-nowrap">
+            <div class="col-12 col-md-3 col-xl-2" id="doc-side-nav">
+                <nav class="doc-sidebar">
+                </nav>
+            </div>
+            <main class="col-12 col-md-9 col-xl-8 py-md-3" role="main">
+                <h2 id="content" class="bd-title"><a href="#">AndroidNativeCore</a>.NetworkManager</h2>
+                <h5>Description</h5>
+                <p> Network Manger class constists methods are wrapper methods of all android network related methods like get wifi information, telephoney information;
+                </p>
+                <h5>Wifi related:</h5>
+                <p class="inline-permission"><img src="../../images/warning.svg"/>You need to add <mark>"android.permission.ACCESS_WIFI_STATE"</mark>,<mark>"android.permission.ACCESS_NETWORK_STATE"</mark> and <mark>"android.permission.CHANGE_WIFI_STATE"</mark> to use this feature. <a href="AddPermissions.html">Check how add permissions.</a></p>              
+                <table class="table">
+                    <thead>
+                        <tr>                     
+                            <th class="varHeaders" colspan="2" scope="col">Public methods</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                void
+                            </td>
+                            <td>
+                                enableWiFi(<mark>bool</mark> enable)
+                                <br><p class="api-desription">Enable or disable wifi by passing <mark>bool</mark> value.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                bool
+                            </td>
+                            <td>
+                                isWifiConnected()
+                                <br><p class="api-desription"> This method return true if device connected to wifi else return flase.</p>
+                            </td>
+                        </tr>                             
+                        <tr>
+                            <td>
+                                bool
+                            </td>
+                            <td>
+                                isWifiEnabled()
+                                <br><p class="api-desription"> This method return true if wifi turn on  else return flase.</p>
+                            </td>
+                        </tr> 
+                        <tr>
+                            <td>
+                                bool
+                            </td>
+                            <td>
+                                isWifiConnected()
+                                <br><p class="api-desription"> This method return true if device connected to any wifi network else return flase.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                bool
+                            </td>
+                            <td>
+                                isWifiConnected()
+                                <br><p class="api-desription"> This method return true if device connected to any wifi network else return flase.</p>
+                            </td>
+                        </tr>                
+                    </tbody>
+                </table>                
+                    <h5>Example</h5>
+                    <pre class="line-numbers">
+                        <code class="language-csharp">
+using AndroidNativeCore;
+
+public void ShowAlert()
+{
+    Toast.make("Hellow Android Native Core",Toast.LENGTH_SHORT)
+}
+                        </code>
+                    </pre> 
+            </main>
+           
+        </div>
+        
+    </div>
+
+    <div id="fotter" class="fotter">
+    </div>
+    <script src="../../lib/PrismCsharp/prism.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="Js/doc.js"></script>
+</body>
+</html>
