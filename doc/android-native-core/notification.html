@@ -10,63 +10,64 @@
 using AndroidNativeCore;
 using UnityEngine;
 public class Android:MonoBehaviour{
+
 private NotificationManager notifyManager;
 private NotificationManager.Channel channel;
 
-void Start(){
+    void Start(){
 
-//Create notification channel;
-networkManager = new NetworkManager();
-notifyManager = new NotificationManager();
-channel = new NotificationManager.Channel();
-channel.id = "notification_0";
-channel.name = "Game Notification";
-channel.importance = NotificationManager.IMPORTANCE_MAX;
-channel.lockScreenVisibility = NotificationManager.VISIBILITY_PUBLIC;
-channel.enableLights = true;
-channel.enableVibration = true;
-channel.enableBadge = true;
-channel.lightColor = "#ffff";
-channel.description = "Notifications from Android Native Core Unity3d Plugin";
-notifyManager.createChannel(channel);
+        //Create notification channel;
+        networkManager = new NetworkManager();
+        notifyManager = new NotificationManager();
+        channel = new NotificationManager.Channel();
+        channel.id = "notification_0";
+        channel.name = "Game Notification";
+        channel.importance = NotificationManager.IMPORTANCE_MAX;
+        channel.lockScreenVisibility = NotificationManager.VISIBILITY_PUBLIC;
+        channel.enableLights = true;
+        channel.enableVibration = true;
+        channel.enableBadge = true;
+        channel.lightColor = "#ffff";
+        channel.description = "Notifications from Android Native Core Unity3d Plugin";
+        notifyManager.createChannel(channel);
 
-//Issue notification
-notification = new Notification();
-if(condition)
-NotificationBigImage();
-else
-NotificationBigUrl();
-}
-public void NotificationBigImage()
-{
-NotificationManager.Builder notfi = new NotificationManager.Builder();
-notfi.Create(notifyManager,"notification_0")
-.setContentTitle("Android Native Core")
-.setContentText("this notification with bigImage")
-.setAutoCansel(true)
-.setIcon("android_native_core")
-.setSound("notification_sound")
-.setGroup("Samples",true)
-.setPriority(NotificationManager.PRIORITY_MAX)
-.setGroup("GreatDeals",true)
-.setBigImage(NotifiBigIcon)
-.notify(1);
-}
-public void NotificationBigUrl()
-{
-NotificationManager.Builder notfi = new NotificationManager.Builder();
-notfi.Create(notifyManager,"notification_0")
-.setContentTitle("Android Native Core")
-.setContentText("this notification with bigImage")
-.setAutoCansel(true)
-.setIcon("android_native_core")
-.setSound("notification_sound")
-.setGroup("Samples",true)
-.setPriority(NotificationManager.PRIORITY_MAX)
-.setGroup("GreatDeals",true)
-.setBigImage("https://imaging.nikon.com/lineup/dslr/d800/img/sample01/img_01.png")
-.notify(2);
-}
+        //Issue notification
+        notification = new Notification();
+        if(condition)
+        NotificationBigImage();
+        else
+        NotificationBigUrl();
+    }
+    public void NotificationBigImage()
+    {
+        NotificationManager.Builder notfi = new NotificationManager.Builder();
+        notfi.Create(notifyManager,"notification_0")
+        .setContentTitle("Android Native Core")
+        .setContentText("this notification with bigImage")
+        .setAutoCansel(true)
+        .setIcon("android_native_core")
+        .setSound("notification_sound")
+        .setGroup("Samples",true)
+        .setPriority(NotificationManager.PRIORITY_MAX)
+        .setGroup("GreatDeals",true)
+        .setBigImage(NotifiBigIcon)
+        .notify(1);
+    }
+    public void NotificationBigUrl()
+    {
+        NotificationManager.Builder notfi = new NotificationManager.Builder();
+        notfi.Create(notifyManager,"notification_0")
+        .setContentTitle("Android Native Core")
+        .setContentText("this notification with bigImage")
+        .setAutoCansel(true)
+        .setIcon("android_native_core")
+        .setSound("notification_sound")
+        .setGroup("Samples",true)
+        .setPriority(NotificationManager.PRIORITY_MAX)
+        .setGroup("GreatDeals",true)
+        .setBigImage("https://imaging.nikon.com/lineup/dslr/d800/img/sample01/img_01.png")
+        .notify(2);
+    }
 }
     </code>
 </pre></main></div></div><div id="fotter" class="fotter"></div><script src="../../lib/PrismCsharp/prism.js"></script><script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script><script src="Js/doc.js"></script></body></html>
