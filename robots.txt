@@ -1,4 +1,3 @@
 User-agent: *
 Disallow: /404.html
-Disallow: /doc/android-native-core/models/
-Disallow: /models/
+
