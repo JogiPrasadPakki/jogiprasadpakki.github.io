@@ -1,11 +1,576 @@
 <!--Developed by Jogi Prasad Pakki on 26/Octobor/2018 -->
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Unity Android Notifications|Android Native Core</title><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="keywords" content="unity android notifications,unity android big image notification,android notification,android notification channels,unity android notification channels"><meta name="description" content="Create android  big text and big image style notifications with load big image from url and create various notification channels within your unity 3d android application."><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@jogiprasadpakki"><meta name="twitter:creator" content="@JogiPrasadPakki"><meta name="twitter:title" content="Unity Android Notifications|Android Native Core"><meta name="twitter:description" content="Show android toast message in unity android game by few lines with simple api."><meta name="twitter:image" content="http://jogiprasadpakki.github.io/images/anc-banner.png"><meta property="og:url" content="https://jogiprasadpakki.github.io/doc/android-native-core/notifications.html"><meta property="og:title" content="Unity Android Notifications|Android Native Core"><meta property="og:description" content="Show android toast message in unity android game by few lines with simple api."><meta property="og:type" content="website"><meta property="og:image" content="http://jogiprasadpakki.github.io/images/anc-banner.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon"><link rel="icon" href="../../images/favicon.ico" type="image/x-icon"><link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"><link rel="stylesheet" href="../../lib/PrismCsharp/prism.css"><link href="css/docstyle.css" rel="stylesheet"><script src="../../js/google-analytics.js"></script></head><body><div class="brand"><h3><a href="https://jogiprasadpakki.github.io">Jogi Prasad Pakki</a></h3></div><nav id="top-nav" class="navbar navbar-expand-lg navbar-dark bg-light navbar-toggleable-md sticky-top" role="navigation"><noscript><p>Plese enable javaScript to best view</p></noscript></nav><div class="container-fluid"><div class="row flex-xl-nowrap"><div class="col-12 col-md-3 col-xl-2" id="doc-side-nav"><nav class="doc-sidebar"></nav></div><main class="col-12 col-md-9 col-xl-8 py-md-3" role="main"><h2 id="content" class="bd-title"><a href="#">AndroidNativeCore</a>.NotificationManager</h2><h5>Description</h5><p>This class issue notifications with big text and big image style with load big image from url it's useful for push notifications and create various notification channels.</p><p class="inline-permission"><img src="../../images/warning.svg"> You need add <mark>"com.android.support:support-compat libreary to work this feature"</mark></p><div id="support"><h5>Adding com.android.support:support-compat libreary</h5><p>Downloade and install <a href="https://github.com/googlesamples/unity-jar-resolver">Unity play service resolver</a> unity plugin if you have not add. Create folder <mark>Editor</mark> add below xml code and save it as <strong>androidDependencies.xml</strong> and resolve packages by Assets > Play Services Resolver > Android Resolver >force resolve.<xmp class="inline-permission" style="border-color:green;background-color:rgba(0,255,0,.09);color:#000">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Unity Android Notifications|Android Native Core</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="keywords"
+      content="unity android notifications,unity android big image notification,android notification,android notification channels,unity android notification channels"
+    />
+    <meta
+      name="description"
+      content="Create android  big text and big image style notifications with load big image from url and create various notification channels within your unity 3d android application."
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@jogiprasadpakki" />
+    <meta name="twitter:creator" content="@JogiPrasadPakki" />
+    <meta
+      name="twitter:title"
+      content="Unity Android Notifications|Android Native Core"
+    />
+    <meta
+      name="twitter:description"
+      content="Show android toast message in unity android game by few lines with simple api."
+    />
+    <meta
+      name="twitter:image"
+      content="http://jogiprasadpakki.github.io/images/anc-banner.png"
+    />
+    <meta
+      property="og:url"
+      content="https://jogiprasadpakki.github.io/doc/android-native-core/notifications.html"
+    />
+    <meta
+      property="og:title"
+      content="Unity Android Notifications|Android Native Core"
+    />
+    <meta
+      property="og:description"
+      content="Show android toast message in unity android game by few lines with simple api."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="http://jogiprasadpakki.github.io/images/anc-banner.png"
+    />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <link
+      rel="shortcut icon"
+      href="../../images/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../lib/PrismCsharp/prism.css" />
+    <link href="css/docstyle.css" rel="stylesheet" />
+    <script src="../../js/google-analytics.js"></script>
+  </head>
+  <body>
+    <div class="brand">
+      <h3><a href="https://jogiprasadpakki.github.io">Jogi Prasad Pakki</a></h3>
+    </div>
+    <nav
+      id="top-nav"
+      class="navbar navbar-expand-lg navbar-dark bg-light navbar-toggleable-md sticky-top"
+      role="navigation"
+    >
+      <noscript><p>Plese enable javaScript to best view</p></noscript>
+    </nav>
+    <div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        <div class="col-12 col-md-3 col-xl-2" id="doc-side-nav">
+          <nav class="doc-sidebar"></nav>
+        </div>
+        <main class="col-12 col-md-9 col-xl-8 py-md-3" role="main">
+          <h2 id="content" class="bd-title">
+            <a href="#">AndroidNativeCore</a>.NotificationManager
+          </h2>
+          <h5>Description</h5>
+          <p>
+            This class issue notifications with big text and big image style
+            with load big image from url it's useful for push notifications and
+            create various notification channels.
+          </p>
+          <p class="inline-permission">
+            <img src="../../images/warning.svg" /> You need add
+            <mark
+              >"com.android.support:support-compat libreary to work this
+              feature"</mark
+            >
+          </p>
+          <div id="support">
+            <h5>Adding com.android.support:support-compat libreary</h5>
+            <p>
+              Downloade and install
+              <a href="https://github.com/googlesamples/unity-jar-resolver"
+                >Unity play service resolver</a
+              >
+              unity plugin if you have not add. Create folder
+              <mark>Editor</mark> add below xml code and save it as
+              <strong>androidDependencies.xml</strong> and resolve packages by
+              Assets > Play Services Resolver > Android Resolver >force resolve.
+              <xmp
+                class="inline-permission"
+                style="
+                  border-color: green;
+                  background-color: rgba(0, 255, 0, 0.09);
+                  color: #000;
+                ">
 <dependencies>
         <androidPackages>
             <androidPackage spec="com.android.support:support-compat:28.0.0"/>
         </androidPackages>
 </dependencies></xmp>
-    </p></div><table id="constents" class="table"><thead><tr><th class="varHeaders" colspan="2" scope="col">Constants</th></tr></thead><tbody><tr><td>int</td><td>IMPORTANCE_DEFAULT<p class="api-desription">Default notification importance: shows everywhere, allowed to makes noise, but does not visually intrude.</p></td></tr><tr><td>int</td><td>IMPORTANCE_HIGH<p class="api-desription">Higher notification importance: shows everywhere, allowed to makes noise and peek</p></td></tr><tr><td>int</td><td>IMPORTANCE_LOW<p class="api-desription">Low notification importance: shows everywhere, but is not intrusive</p></td></tr><tr><td>int</td><td>IMPORTANCE_MAX<p class="api-desription">Highest notification importance: shows everywhere, allowed to makes noise, peek, and use full screen intents.</p></td></tr><tr><td>int</td><td>IMPORTANCE_MIN<p class="api-desription">Min notification importance: only shows in the shade, below the fold.</p></td></tr><tr><td>int</td><td>IMPORTANCE_NONE<p class="api-desription">A notification with no importance: shows nowhere, is blocked.</p></td></tr><tr><td>int</td><td>IMPORTANCE_LOW<p class="api-desription">Low notification importance: shows everywhere, but is not intrusive</p></td></tr><tr><td>int</td><td>IMPORTANCE_MAX<p class="api-desription">Highest notification importance: shows everywhere, allowed to makes noise, peek, and use full screen intents.</p></td></tr><tr><td>int</td><td>IMPORTANCE_MIN<p class="api-desription">Min notification importance: only shows in the shade, below the fold.</p></td></tr><tr><td>int</td><td>IMPORTANCE_NONE<p class="api-desription">A notification with no importance: shows nowhere, is blocked.</p></td></tr><!--uuuuuuuuuuuuuuuuuuuuuuuuuuu--><tr><td>int</td><td>PRIORITY_DEFAULT<p class="api-desription">Default notification priority. If your application does not prioritize its own notifications, use this value for all notifications.</p></td></tr><tr><td>int</td><td>PRIORITY_HIGH<p class="api-desription">Higher priority, for more important notifications or alerts. The UI may choose to show these items larger, or at a different position in notification lists, compared with your app's PRIORITY_DEFAULT items.</p></td></tr><tr><td>int</td><td>PRIORITY_LOW<p class="api-desription">Lower priority, for items that are less important. The UI may choose to show these items smaller, or at a different position in the list, compared with your app's PRIORITY_DEFAULT items.</p></td></tr><tr><td>int</td><td>PRIORITY_MAX<p class="api-desription">Highest priority, for your application's most important items that require the user's prompt attention or input.</p></td></tr><tr><td>int</td><td>PRIORITY_MIN<p class="api-desription">Lowest priority; these items might not be shown to the user except under special circumstances, such as detailed notification logs.</p></td></tr><!--uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu--><tr><td>int</td><td>VISIBILITY_PUBLIC<p class="api-desription">Show this notification in its entirety on all lockscreens.</p></td></tr><tr><td>int</td><td>VISIBILITY_PRIVATE<p class="api-desription">Show this notification on all lockscreens, but conceal sensitive or private information on secure lockscreens.</p></td></tr><tr><td>int</td><td>VISIBILITY_SECRET<p class="api-desription">Do not reveal any part of this notification on a secure lockscreen.</p></td></tr></tbody></table><h2 id="builder" class="bd-title"><a href="#content">NotificationManager</a>.Builder</h2><table class="table"><thead><tr><th class="varHeaders" colspan="2" scope="col">Public methods</th></tr></thead><tbody><tr><td>NotificationManager.Builder</td><td>Create(<mark>NotificationManager</mark> notificationManager, <mark>string</mark> channelId)<br><p class="api-desription">This method take <mark>NotificationManager</mark> and notification channel id as parameters</p></td></tr><tr><td>NotificationManager.Builder</td><td>setAutoCansel(<mark>bool</mark> AutoCansel)<br><p class="api-desription">Auto cansel notification by <mark>bool</mark> value.</p></td></tr><tr><td>NotificationManager.Builder</td><td>setIcon(<mark>string</mark> resourseName)<br><p class="api-desription">This method set notification icon takes drawable name you put on "Assets/Plugins/Android/res/drawable/" folder as parameter</p></td></tr><tr><td>NotificationManager.Builder</td><td>setSound(<mark>string</mark> resourseName)<br><p class="api-desription">This method set custom notification sound. You need add notification sound at "Assets/Plugins/Android/res/raw/" folder and pass sound name as <mark>string</mark> without extension.</p></td></tr><tr><td>NotificationManager.Builder</td><td>setDefautlSound()<br><p class="api-desription">This method set default sound for notifications.</p></td></tr><tr><td>NotificationManager.Builder</td><td>setBigImage(<mark>Texture2D</mark> largeicon)<br><p class="api-desription">This method set big image to notification passing <mark>Texture2D</mark> as parameter.</p></td></tr><tr><td>NotificationManager.Builder</td><td>setBigImage(<mark>string</mark> url)<br><p class="api-desription">This method fetch image from server by url and set it as bigimage of notification. This is method is useful for create push notification with image.</p></td></tr><tr><td>NotificationManager.Builder</td><td>setContentTitle(<mark>string</mark> title)<br><p class="api-desription">This method set title to notification.</p></td></tr><tr><td>NotificationManager.Builder</td><td>setContentText(<mark>string</mark> text)<br><p class="api-desription">This method set message to notification as big text style.</p></td></tr><tr><td>NotificationManager.Builder</td><td>setPriority(<mark>int</mark> priority)<br><p class="api-desription">This method set notification priority by taking Priority constents.</p></td></tr><tr><td>NotificationManager.Builder</td><td>setGroup(<mark>string</mark> groupName, <mark>bool</mark> showGroupSummery)<br><p class="api-desription">This method show multiple notifications as group by assigning groupName.You can show or hide group summery by <mark>bool</mark> value.</p></td></tr><tr><td>void</td><td>notifi(<mark>int</mark> id)<br><p class="api-desription">This method build and show notification with given configuration with passing <mark>int</mark>notification id.</p></td></tr></tbody></table><h2 id="channel" class="bd-title"><a href="#content">NotificationManager</a>.Channel</h2><h5>Description</h5><p>Android notification channels are introduced form Android api level 28(Oreio). You need to create atleast one notification channel for issue notifications.</p><table class="table"><thead><tr><th class="varHeaders" colspan="2" scope="col">Public methods</th></tr></thead><tbody><tr><td>int</td><td>importence<p class="api-desription">It sets notification importance by takeing constents in <a href="#constents">NotificationManager</a> section.</p></td></tr><tr><td>int</td><td>lockScreenVisibility<p class="api-desription">It sets notification visibilty when device in locked mode by takeing constents in <a href="#constents">NotificationManager</a> section.</p></td></tr><tr><td>string</td><td>id<p class="api-desription">It sets channel id</p></td></tr><tr><td>string</td><td>name<p class="api-desription">It sets channel name</p></td></tr><tr><td>string</td><td>description<p class="api-desription">It sets channel description</p></td></tr><tr><td>string</td><td>lightColor<p class="api-desription">It sets notification light color * color code must be in hex value like "#ffff"</p></td></tr><tr><td>bool</td><td>enableLights<p class="api-desription">It sets enable or disable lights when notification</p></td></tr><tr><td>bool</td><td>enableVibration<p class="api-desription">It sets enable or disable vibration when notification</p></td></tr><tr><td>bool</td><td>enableBadge<p class="api-desription">It sets show or hide notification badge at launcher icon.</p></td></tr><tr><td>long[]</td><td>vibrationPattren<p class="api-desription">It vibrate device in pattren while notification.</p></td></tr></tbody></table><h5>Example</h5><pre class="line-numbers">
+            </p>
+          </div>
+          <table id="constents" class="table">
+            <thead>
+              <tr>
+                <th class="varHeaders" colspan="2" scope="col">Constants</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>int</td>
+                <td>
+                  IMPORTANCE_DEFAULT
+                  <p class="api-desription">
+                    Default notification importance: shows everywhere, allowed
+                    to makes noise, but does not visually intrude.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>int</td>
+                <td>
+                  IMPORTANCE_HIGH
+                  <p class="api-desription">
+                    Higher notification importance: shows everywhere, allowed to
+                    makes noise and peek
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>int</td>
+                <td>
+                  IMPORTANCE_LOW
+                  <p class="api-desription">
+                    Low notification importance: shows everywhere, but is not
+                    intrusive
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>int</td>
+                <td>
+                  IMPORTANCE_MAX
+                  <p class="api-desription">
+                    Highest notification importance: shows everywhere, allowed
+                    to makes noise, peek, and use full screen intents.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>int</td>
+                <td>
+                  IMPORTANCE_MIN
+                  <p class="api-desription">
+                    Min notification importance: only shows in the shade, below
+                    the fold.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>int</td>
+                <td>
+                  IMPORTANCE_NONE
+                  <p class="api-desription">
+                    A notification with no importance: shows nowhere, is
+                    blocked.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>int</td>
+                <td>
+                  IMPORTANCE_LOW
+                  <p class="api-desription">
+                    Low notification importance: shows everywhere, but is not
+                    intrusive
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>int</td>
+                <td>
+                  IMPORTANCE_MAX
+                  <p class="api-desription">
+                    Highest notification importance: shows everywhere, allowed
+                    to makes noise, peek, and use full screen intents.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>int</td>
+                <td>
+                  IMPORTANCE_MIN
+                  <p class="api-desription">
+                    Min notification importance: only shows in the shade, below
+                    the fold.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>int</td>
+                <td>
+                  IMPORTANCE_NONE
+                  <p class="api-desription">
+                    A notification with no importance: shows nowhere, is
+                    blocked.
+                  </p>
+                </td>
+              </tr>
+              <!--uuuuuuuuuuuuuuuuuuuuuuuuuuu-->
+              <tr>
+                <td>int</td>
+                <td>
+                  PRIORITY_DEFAULT
+                  <p class="api-desription">
+                    Default notification priority. If your application does not
+                    prioritize its own notifications, use this value for all
+                    notifications.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>int</td>
+                <td>
+                  PRIORITY_HIGH
+                  <p class="api-desription">
+                    Higher priority, for more important notifications or alerts.
+                    The UI may choose to show these items larger, or at a
+                    different position in notification lists, compared with your
+                    app's PRIORITY_DEFAULT items.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>int</td>
+                <td>
+                  PRIORITY_LOW
+                  <p class="api-desription">
+                    Lower priority, for items that are less important. The UI
+                    may choose to show these items smaller, or at a different
+                    position in the list, compared with your app's
+                    PRIORITY_DEFAULT items.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>int</td>
+                <td>
+                  PRIORITY_MAX
+                  <p class="api-desription">
+                    Highest priority, for your application's most important
+                    items that require the user's prompt attention or input.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>int</td>
+                <td>
+                  PRIORITY_MIN
+                  <p class="api-desription">
+                    Lowest priority; these items might not be shown to the user
+                    except under special circumstances, such as detailed
+                    notification logs.
+                  </p>
+                </td>
+              </tr>
+              <!--uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu-->
+              <tr>
+                <td>int</td>
+                <td>
+                  VISIBILITY_PUBLIC
+                  <p class="api-desription">
+                    Show this notification in its entirety on all lockscreens.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>int</td>
+                <td>
+                  VISIBILITY_PRIVATE
+                  <p class="api-desription">
+                    Show this notification on all lockscreens, but conceal
+                    sensitive or private information on secure lockscreens.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>int</td>
+                <td>
+                  VISIBILITY_SECRET
+                  <p class="api-desription">
+                    Do not reveal any part of this notification on a secure
+                    lockscreen.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h2 id="builder" class="bd-title">
+            <a href="#content">NotificationManager</a>.Builder
+          </h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="varHeaders" colspan="2" scope="col">
+                  Public methods
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>NotificationManager.Builder</td>
+                <td>
+                  Create(<mark>NotificationManager</mark> notificationManager,
+                  <mark>string</mark> channelId)<br />
+                  <p class="api-desription">
+                    This method take <mark>NotificationManager</mark> and
+                    notification channel id as parameters
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>NotificationManager.Builder</td>
+                <td>
+                  setAutoCansel(<mark>bool</mark> AutoCansel)<br />
+                  <p class="api-desription">
+                    Auto cansel notification by <mark>bool</mark> value.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>NotificationManager.Builder</td>
+                <td>
+                  setIcon(<mark>string</mark> resourseName)<br />
+                  <p class="api-desription">
+                    This method set notification icon takes drawable name you
+                    put on "Assets/Plugins/Android/res/drawable/" folder as
+                    parameter
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>NotificationManager.Builder</td>
+                <td>
+                  setSound(<mark>string</mark> resourseName)<br />
+                  <p class="api-desription">
+                    This method set custom notification sound. You need add
+                    notification sound at "Assets/Plugins/Android/res/raw/"
+                    folder and pass sound name as <mark>string</mark> without
+                    extension.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>NotificationManager.Builder</td>
+                <td>
+                  setDefautlSound()<br />
+                  <p class="api-desription">
+                    This method set default sound for notifications.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>NotificationManager.Builder</td>
+                <td>
+                  setBigImage(<mark>Texture2D</mark> largeicon)<br />
+                  <p class="api-desription">
+                    This method set big image to notification passing
+                    <mark>Texture2D</mark> as parameter.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>NotificationManager.Builder</td>
+                <td>
+                  setBigImage(<mark>string</mark> url)<br />
+                  <p class="api-desription">
+                    This method fetch image from server by url and set it as
+                    bigimage of notification. This is method is useful for
+                    create push notification with image.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>NotificationManager.Builder</td>
+                <td>
+                  setContentTitle(<mark>string</mark> title)<br />
+                  <p class="api-desription">
+                    This method set title to notification.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>NotificationManager.Builder</td>
+                <td>
+                  setContentText(<mark>string</mark> text)<br />
+                  <p class="api-desription">
+                    This method set message to notification as big text style.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>NotificationManager.Builder</td>
+                <td>
+                  setPriority(<mark>int</mark> priority)<br />
+                  <p class="api-desription">
+                    This method set notification priority by taking Priority
+                    constents.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>NotificationManager.Builder</td>
+                <td>
+                  setGroup(<mark>string</mark> groupName,
+                  <mark>bool</mark> showGroupSummery)<br />
+                  <p class="api-desription">
+                    This method show multiple notifications as group by
+                    assigning groupName.You can show or hide group summery by
+                    <mark>bool</mark> value.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>void</td>
+                <td>
+                  notifi(<mark>int</mark> id)<br />
+                  <p class="api-desription">
+                    This method build and show notification with given
+                    configuration with passing <mark>int</mark>notification id.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h2 id="channel" class="bd-title">
+            <a href="#content">NotificationManager</a>.Channel
+          </h2>
+          <h5>Description</h5>
+          <p>
+            Android notification channels are introduced form Android api level
+            28(Oreio). You need to create atleast one notification channel for
+            issue notifications.
+          </p>
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="varHeaders" colspan="2" scope="col">
+                  Public methods
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>int</td>
+                <td>
+                  importence
+                  <p class="api-desription">
+                    It sets notification importance by takeing constents in
+                    <a href="#constents">NotificationManager</a> section.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>int</td>
+                <td>
+                  lockScreenVisibility
+                  <p class="api-desription">
+                    It sets notification visibilty when device in locked mode by
+                    takeing constents in
+                    <a href="#constents">NotificationManager</a> section.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>string</td>
+                <td>
+                  id
+                  <p class="api-desription">It sets channel id</p>
+                </td>
+              </tr>
+              <tr>
+                <td>string</td>
+                <td>
+                  name
+                  <p class="api-desription">It sets channel name</p>
+                </td>
+              </tr>
+              <tr>
+                <td>string</td>
+                <td>
+                  description
+                  <p class="api-desription">It sets channel description</p>
+                </td>
+              </tr>
+              <tr>
+                <td>string</td>
+                <td>
+                  lightColor
+                  <p class="api-desription">
+                    It sets notification light color * color code must be in hex
+                    value like "#ffff"
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>bool</td>
+                <td>
+                  enableLights
+                  <p class="api-desription">
+                    It sets enable or disable lights when notification
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>bool</td>
+                <td>
+                  enableVibration
+                  <p class="api-desription">
+                    It sets enable or disable vibration when notification
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>bool</td>
+                <td>
+                  enableBadge
+                  <p class="api-desription">
+                    It sets show or hide notification badge at launcher icon.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>long[]</td>
+                <td>
+                  vibrationPattren
+                  <p class="api-desription">
+                    It vibrate device in pattren while notification.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h5>Example</h5>
+          <pre class="line-numbers">
     <code class="language-csharp">
 using AndroidNativeCore;
 using UnityEngine;
@@ -70,4 +635,27 @@ private NotificationManager.Channel channel;
     }
 }
     </code>
-</pre></main></div></div><div id="fotter" class="fotter"></div><script src="../../lib/PrismCsharp/prism.js"></script><script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script><script src="Js/doc.js"></script></body></html>
+</pre>
+        </main>
+      </div>
+    </div>
+    <div id="fotter" class="fotter"></div>
+    <script src="../../lib/PrismCsharp/prism.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="Js/doc.js"></script>
+  </body>
+</html>

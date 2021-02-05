@@ -1,1 +1,191 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Unity Android Device info | Android Native Core</title><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="keywords" content="unity android device info,unity android get device id,unity android get device model,unity android get device Manfacture,unity android get system info"><meta name="description" content="This c# class consist methods of retrieving android version name ,android version code, unique device id , manfacture , device model and security patch information."><meta name="twitter:card" content="summary"><meta name="twitter:site" content="@jogiprasadpakki"><meta name="twitter:creator" content="@JogiPrasadPakki"><meta name="twitter:title" content="Unity Android Device info | Android Native Core"><meta name="twitter:description" content="This class consist methods of retrieving android os and device information."><meta name="twitter:image" content="http://jogiprasadpakki.github.io/images/anc-banner.png"><meta property="og:url" content="https://jogiprasadpakki.github.io/doc/android-native-core/device.html"><meta property="og:title" content="Unity Android Device info | Android Native Core"><meta property="og:description" content="This class consist methods of retrieving android os and device information."><meta property="og:type" content="website"><meta property="og:image" content="http://jogiprasadpakki.github.io/images/anc-banner.png"><meta property="og:image:secure_url" content="http://jogiprasadpakki.github.io/projects/android-native-core.html"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon"><link rel="icon" href="../../images/favicon.ico" type="image/x-icon"><link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"><link href="css/docstyle.css" rel="stylesheet"><script src="../../js/google-analytics.js"></script></head><body><div class="brand"><h3><a href="https://jogiprasadpakki.github.io">Jogi Prasad Pakki</a></h3></div><nav id="top-nav" class="navbar navbar-expand-lg navbar-dark bg-light navbar-toggleable-md sticky-top" role="navigation"><noscript><p>Plese enable javaScript to best view</p></noscript></nav><div class="container-fluid"><div class="row flex-xl-nowrap"><div class="col-12 col-md-3 col-xl-2" id="doc-side-nav"><nav class="doc-sidebar"></nav></div><main class="col-12 col-md-9 col-xl-8 py-md-3" role="main"><h2 id="content" class="bd-title"><a href="#">android-native-core</a>.Device</h2><h5>Description</h5><p>This class consist methods of retrieving android version name ,android version code,unique device id , manfacture , device model and security patch information.</p><h5>Summary:</h5><table class="table"><thead><tr><th class="varHeaders" colspan="2" scope="col">Public methods</th></tr></thead><tbody><tr><td>string</td><td>androidVersionName()<br><p class="api-desription">This method return android os name which instlled on user device like kitkat,lollypop,oreo etc.</p></td></tr><tr><td>string</td><td>androidVersionCode()<br><p class="api-desription">This method return api level of android os device.</p></td></tr><tr><td>string</td><td>manfacture()<br><p class="api-desription">This method return device manfacture name.</p></td></tr><tr><td>string</td><td>model()<br><p class="api-desription">This method return device model name.</p></td></tr><tr><td>string</td><td>securityPatch()<br><p class="api-desription">This method return device security patch neme.</p></td></tr><tr><td>string</td><td>androidID()<br><p class="api-desription">This method return Settings.Secure.ANDROID_ID. This is a 64-bit quantity that is generated and stored when the device first boots. It is reset when the device is wiped.</p></td></tr></tbody></table></main></div></div><div id="fotter" class="fotter"></div><script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script><script src="Js/doc.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Unity Android Device info | Android Native Core</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="keywords"
+      content="unity android device info,unity android get device id,unity android get device model,unity android get device Manfacture,unity android get system info"
+    />
+    <meta
+      name="description"
+      content="This c# class consist methods of retrieving android version name ,android version code, unique device id , manfacture , device model and security patch information."
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@jogiprasadpakki" />
+    <meta name="twitter:creator" content="@JogiPrasadPakki" />
+    <meta
+      name="twitter:title"
+      content="Unity Android Device info | Android Native Core"
+    />
+    <meta
+      name="twitter:description"
+      content="This class consist methods of retrieving android os and device information."
+    />
+    <meta
+      name="twitter:image"
+      content="http://jogiprasadpakki.github.io/images/anc-banner.png"
+    />
+    <meta
+      property="og:url"
+      content="https://jogiprasadpakki.github.io/doc/android-native-core/device.html"
+    />
+    <meta
+      property="og:title"
+      content="Unity Android Device info | Android Native Core"
+    />
+    <meta
+      property="og:description"
+      content="This class consist methods of retrieving android os and device information."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="http://jogiprasadpakki.github.io/images/anc-banner.png"
+    />
+    <meta
+      property="og:image:secure_url"
+      content="http://jogiprasadpakki.github.io/projects/android-native-core.html"
+    />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <link
+      rel="shortcut icon"
+      href="../../images/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
+    <link href="css/docstyle.css" rel="stylesheet" />
+    <script src="../../js/google-analytics.js"></script>
+  </head>
+  <body>
+    <div class="brand">
+      <h3><a href="https://jogiprasadpakki.github.io">Jogi Prasad Pakki</a></h3>
+    </div>
+    <nav
+      id="top-nav"
+      class="navbar navbar-expand-lg navbar-dark bg-light navbar-toggleable-md sticky-top"
+      role="navigation"
+    >
+      <noscript><p>Plese enable javaScript to best view</p></noscript>
+    </nav>
+    <div class="container-fluid">
+      <div class="row flex-xl-nowrap">
+        <div class="col-12 col-md-3 col-xl-2" id="doc-side-nav">
+          <nav class="doc-sidebar"></nav>
+        </div>
+        <main class="col-12 col-md-9 col-xl-8 py-md-3" role="main">
+          <h2 id="content" class="bd-title">
+            <a href="#">AndroidNativeCore</a>.Device
+          </h2>
+          <h5>Description</h5>
+          <p>
+            This class consist methods of retrieving android version name
+            ,android version code,unique device id , manfacture , device model
+            and security patch information.
+          </p>
+          <h5>Summary:</h5>
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="varHeaders" colspan="2" scope="col">
+                  Public methods
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>string</td>
+                <td>
+                  androidVersionName()<br />
+                  <p class="api-desription">
+                    This method return android os name which instlled on user
+                    device like kitkat,lollypop,oreo etc.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>string</td>
+                <td>
+                  androidVersionCode()<br />
+                  <p class="api-desription">
+                    This method return api level of android os device.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>string</td>
+                <td>
+                  manfacture()<br />
+                  <p class="api-desription">
+                    This method return device manfacture name.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>string</td>
+                <td>
+                  model()<br />
+                  <p class="api-desription">
+                    This method return device model name.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>string</td>
+                <td>
+                  securityPatch()<br />
+                  <p class="api-desription">
+                    This method return device security patch neme.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>string</td>
+                <td>
+                  androidID()<br />
+                  <p class="api-desription">
+                    This method return Settings.Secure.ANDROID_ID. This is a
+                    64-bit quantity that is generated and stored when the device
+                    first boots. It is reset when the device is wiped.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </main>
+      </div>
+    </div>
+    <div id="fotter" class="fotter"></div>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="Js/doc.js"></script>
+  </body>
+</html>
